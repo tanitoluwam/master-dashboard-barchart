@@ -10,10 +10,81 @@ import {
 } from "@mui/material";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import PublicOutlinedIcon from "@mui/icons-material/PublicOutlined";
-import { BarChart } from "../Barchart/Barchat";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  // Title,
+  // Tooltip,
+  Legend,
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  // Title,
+  // Tooltip,
+  Legend
+);
+
+// import { BarChart } from "../Barchart/Barchat";
 
 
 export const MapView = () => {
+  const options = {
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        grid: {
+          display: false,
+        },
+        beginAtZero: true,
+        max: 3000,
+      },
+    },
+    indexAxis: "y",
+    elements: {
+      bar: {
+        borderWidth: 2,
+      },
+    },
+    responsive: true,
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  };
+  const labels = [
+    "Russia",
+    "Uganda",
+    "South Africa",
+    "Nigeria",
+    "Ghana",
+    "Croatia",
+    "Argentina",
+    "China",
+  ];
+
+  const state = {
+    labels,
+    datasets: [
+      {
+        data: [1156, 1770, 800, 2100, 1156, 850, 850, 420],
+        backgroundColor: "rgb(8,172,172)",
+        // barPercentage: 0.7,
+        // categoryPercentage: 1,
+      },
+    ],
+  };
   return (
     <Container maxWidth="sm">
       <Box
@@ -78,7 +149,7 @@ export const MapView = () => {
         </Box>
         <Divider />
         <Box sx={{ padding: "10px 20px" }}>
-         <BarChart  /> 
+          <Bar options={options} data={state} />
         </Box>
       </Box>
     </Container>
