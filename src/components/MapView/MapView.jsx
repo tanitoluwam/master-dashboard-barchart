@@ -12,6 +12,7 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import PublicOutlinedIcon from "@mui/icons-material/PublicOutlined";
 import { BarChart } from "../Barchart/Barchat";
 
+
 export const MapView = () => {
   return (
     <Container maxWidth="sm">
@@ -77,7 +78,7 @@ export const MapView = () => {
         </Box>
         <Divider />
         <Box sx={{ padding: "10px 20px" }}>
-          <BarChart />
+         <BarChart  /> 
         </Box>
       </Box>
     </Container>
