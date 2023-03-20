@@ -20,7 +20,7 @@ ChartJS.register(
 
 // ChartJS.register(ChartDataLabels);
 
-export const options = {
+const options = {
   scales: {
     x: {
       grid: {
@@ -60,7 +60,7 @@ const labels = [
   "China",
 ];
 
-export const state = {
+const state = {
   labels,
   datasets: [
     {
