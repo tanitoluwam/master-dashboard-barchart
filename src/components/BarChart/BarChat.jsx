@@ -31,8 +31,6 @@ export const options = {
       grid: {
         display: false,
       },
-      suggestedMin: 50,
-      suggestedMax: 100,
       beginAtZero: true,
       max: 3000,
     },
@@ -68,15 +66,15 @@ export const state = {
     {
       data: [1156, 1770, 800, 2100, 1156, 850, 850, 420],
       backgroundColor: "rgb(8,172,172)",
-      barPercentage: 0.7,
-      categoryPercentage: 1,
+      // barPercentage: 0.7,
+      // categoryPercentage: 1,
     },
   ],
 };
 
-export function BarChart() {
+export const BarChart = () => {
   return <Bar options={options} data={state} />;
-}
+};
 // datalabels: {
 //       anchor: "end",
 //       align: "center",
