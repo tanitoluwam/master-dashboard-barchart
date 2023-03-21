@@ -27,16 +27,20 @@ ChartJS.register(
   BarElement,
   // Title,
   // Tooltip,
-  Legend
+  Legend,
+  ChartDataLabels
 );
 
 // import { BarChart } from "../Barchart/Barchat";
-
 
 export const MapView = () => {
   const options = {
     scales: {
       x: {
+        beginAtZero: true,
+        min: 0,
+        max: 3000,
+        stepSize: 10,
         grid: {
           display: false,
         },
@@ -45,8 +49,6 @@ export const MapView = () => {
         grid: {
           display: false,
         },
-        beginAtZero: true,
-        max: 3000,
       },
     },
     indexAxis: "y",
@@ -58,6 +60,21 @@ export const MapView = () => {
     responsive: true,
 
     plugins: {
+      datalabels: {
+        display: true,
+        color: "black",
+        formatter: Math.round,
+        anchor: "end",
+        align: "right",
+        labels: {
+          title: {
+            font: {
+              weight: 400,
+              color: "#B6B5B7",
+            },
+          },
+        },
+      },
       legend: {
         display: false,
       },
@@ -80,8 +97,6 @@ export const MapView = () => {
       {
         data: [1156, 1770, 800, 2100, 1156, 850, 850, 420],
         backgroundColor: "rgb(8,172,172)",
-        // barPercentage: 0.7,
-        // categoryPercentage: 1,
       },
     ],
   };
@@ -100,7 +115,6 @@ export const MapView = () => {
             justifyContent: "space-between",
             alignItems: "center",
             padding: "10px 20px",
-            // marginInline: "20px",
             "& .MuiButton-root": { borderRadius: "50px" },
           }}
         >
@@ -117,7 +131,7 @@ export const MapView = () => {
             >
               14.89%
             </Button>
-            <Box sx={{ marginLeft: "20px" }}>
+            <Box sx={{ marginLeft: "10px" }}>
               <Typography
                 component="p"
                 sx={{ color: "#6f6f6f", fontSize: "13px" }}
